@@ -39,7 +39,6 @@ for i in range(len(progresses)):
             break
 d=[]
 print(d_day)
-import math
 
 answer=[]
 d = d_day[0]
