@@ -1,0 +1,65 @@
+d_day = []
+for i in range(len(progresses)):
+    for n in range(100):
+        if progresses[i]+speeds[i]*n>=100:
+            d_day.append(n)
+            break
+d=[]
+print(d_day)
+# [5, 10, 1, 1, 20, 1]
+
+for i in range(len(d_day)):   
+    for n in range(i, len(d_day)):
+        if d_day[i]<d_day[n]:
+            d.append(n)
+            break
+    if d_day[i] == max(d_day):
+        break
+print(d)
+d_count=[]        
+for k in range(10):
+    d_count.append(d.count(k))
+while 0 in d_count:
+    d_count.remove(0)
+
+k=(len(d_day)-d_day.index(max(d_day)))
+d_count.append(k)
+            
+print(d_count)
+
+이것도 답은 다 나오긴 하는데, 틀린 답이라고 나옵니다 ㅠㅠ
+
+그래서 다른 사람의 풀이를 좀 참고해서 풀었습니다.
+
+d_day = []
+for i in range(len(progresses)):
+    for n in range(100):
+        if progresses[i]+speeds[i]*n>=100:
+            d_day.append(n)
+            break
+d=[]
+print(d_day)
+import math
+
+answer=[]
+d = d_day[0]
+cnt = 1
+for i in d_day[1:]:
+    if d >= i:
+        cnt +=1
+    else:
+        answer.append(cnt)
+        d=i
+        cnt=1
+answer.append(cnt)
+print(answer)
+
+이걸 어떻게 이름붙이는 지는 모르겠는데
+
+재귀함수일 것 같네요..
+
+이렇게 하는 것을 좀 외워둬야 겠습니다.
+    else:
+        answer.append(cnt)
+        d=i
+        cnt=1
